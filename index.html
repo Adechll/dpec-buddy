@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DPEC Buddy</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><h1>🎓 DPEC Buddy</h1><p>La rencontre M1–M2</p></header>
+<main>
+<section id="home" class="panel">
+<h2>Bienvenue !</h2>
+<p>Réponds au questionnaire pour participer au parrainage.</p>
+<button onclick="show('form')">Participer</button>
+<button class="secondary" onclick="show('admin')">Espace organisateurs</button>
+</section>
+
+<section id="form" class="panel hidden">
+<h2>Faisons connaissance</h2>
+<form id="participantForm">
+<label>Prénom ou pseudo<input required name="name" maxlength="50"></label>
+<label>Niveau<select required name="level"><option value="">Choisir</option><option value="M1">M1</option><option value="M2">M2</option></select></label>
+<label>Centres d'intérêt <small>(plusieurs choix possibles)</small>
+<div class="choices">
+<label><input type="checkbox" name="interest" value="sport"> Sport</label>
+<label><input type="checkbox" name="interest" value="voyages"> Voyages</label>
+<label><input type="checkbox" name="interest" value="musique"> Musique</label>
+<label><input type="checkbox" name="interest" value="cinema"> Cinéma/séries</label>
+<label><input type="checkbox" name="interest" value="cuisine"> Cuisine</label>
+<label><input type="checkbox" name="interest" value="jeux"> Jeux</label>
+<label><input type="checkbox" name="interest" value="culture"> Culture/lecture</label>
+<label><input type="checkbox" name="interest" value="sorties"> Sorties</label>
+<label><input type="checkbox" name="interest" value="asso"> Engagement associatif</label>
+</div></label>
+<label>Personnalité
+<select required name="personality"><option value="">Choisir</option><option>Calme et posé(e)</option><option>Sociable et extraverti(e)</option><option>Curieux/curieuse et aventurier/aventurière</option><option>Un mélange de tout cela</option></select></label>
+<label>Ce que tu souhaites partager
+<select required name="sharing"><option value="">Choisir</option><option>Conseils et entraide pour les études</option><option>Sorties et activités</option><option>Discussions et échanges</option><option>Découvertes et expériences</option><option>Un peu de tout</option></select></label>
+<label>Ton rythme idéal
+<select required name="rhythm"><option value="">Choisir</option><option>Tranquille</option><option>Régulièrement des sorties</option><option>Très dynamique</option><option>Je m'adapte</option></select></label>
+<label>Sur quels sujets échanger ?
+<select required name="topic"><option value="">Choisir</option><option>Cours, stages et débouchés</option><option>Vie étudiante et bons plans</option><option>Loisirs et passions</option><option>Parcours et projets</option><option>Tous ces sujets</option></select></label>
+<button type="submit">Valider ma participation</button>
+</form>
+<p id="formMessage"></p>
+<button class="secondary" onclick="show('home')">Retour</button>
+</section>
+
+<section id="admin" class="panel hidden">
+<h2>Organisateurs</h2>
+<p class="notice">Prototype local : les réponses sont enregistrées sur cet appareil.</p>
+<div id="stats"></div>
+<button onclick="runMatching()">Créer les binômes</button>
+<button class="secondary" onclick="clearAll()">Effacer les données</button>
+<div id="results"></div>
+<button class="secondary" onclick="show('home')">Retour</button>
+</section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
