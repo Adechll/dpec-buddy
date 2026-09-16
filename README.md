@@ -1,16 +1,22 @@
-# DPEC Buddy
+# DPEC Buddy — version Supabase
 
-Prototype d'application web de parrainage M1/M2.
+Cette version connecte le questionnaire à la base Supabase du projet DPEC buddy.
 
-## Fonctionnalités
-- Questionnaire unique accessible via QR code ou URL.
-- Distinction M1/M2.
-- Stockage local des réponses dans le navigateur.
-- Tableau organisateur.
-- Matching global avec capacité maximale de 2 filleuls par M2.
-- Révélation des binômes après lancement.
+## Fichiers
 
-## Limite importante
-Ce prototype stocke les données dans le navigateur (`localStorage`) : il fonctionne pour une démonstration sur un même appareil, mais n'est pas encore une application multi-utilisateur en ligne.
+- `index.html` : interface
+- `style.css` : mise en forme
+- `app.js` : enregistrement, matching et affichage des résultats
+- `config.js` : URL et clé publique Supabase
+- `migration.sql` : règles SQL complémentaires à exécuter
 
-Pour une vraie soirée, il faudra remplacer le stockage local par une base de données partagée et déployer l'application sur un hébergeur.
+## Installation
+
+1. Téléverser les fichiers dans le dépôt GitHub.
+2. Dans Supabase > SQL Editor, exécuter `migration.sql`.
+3. Activer GitHub Pages sur le dépôt.
+4. Tester avec un faux M1 et un faux M2 avant la soirée.
+
+## Important
+
+Cette version utilise temporairement un code organisateur côté navigateur et des politiques anonymes pour faciliter le test. Ce n'est pas une sécurité forte : avant une utilisation avec des données personnelles, il faut remplacer ce mécanisme par une authentification Supabase et des règles RLS plus strictes.
